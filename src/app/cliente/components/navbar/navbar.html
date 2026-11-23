@@ -1,1 +1,44 @@
-<p>navbar works!</p>
+<button class="menu-toggle" (click)="toggleMobileMenu()" aria-label="Abrir menú">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<nav class="nav-links" [class.open]="mobileMenuOpen()">
+  <ul>
+    @for (item of menuItems; track item.label) {
+      <li class="nav-item" [class.has-dropdown]="item.children">
+        @if (!item.children) {
+          <a
+            [routerLink]="item.route"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: item.route === '/' }"
+            (click)="closeMenus()"
+          >
+            {{ item.label }}
+          </a>
+        } @else {
+          <button
+            type="button"
+            class="dropdown-trigger"
+            (click)="toggleDropdown(item.label)"
+            [class.active-parent]="activeDropdown() === item.label"
+          >
+            {{ item.label }}
+            <span class="arrow">▾</span>
+          </button>
+
+          <ul class="dropdown-menu" [class.show]="activeDropdown() === item.label">
+            @for (sub of item.children; track sub.label) {
+              <li>
+                <a [routerLink]="sub.route" routerLinkActive="active" (click)="closeMenus()">
+                  {{ sub.label }}
+                </a>
+              </li>
+            }
+          </ul>
+        }
+      </li>
+    }
+  </ul>
+</nav>

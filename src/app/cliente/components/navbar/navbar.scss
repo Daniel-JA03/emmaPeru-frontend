@@ -1,0 +1,135 @@
+.nav-links {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .nav-item {
+    position: relative;
+
+    > a,
+    .dropdown-trigger {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.6rem 0.85rem;
+      color: #e4e4e7;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+
+      &:hover,
+      &.active {
+        color: #ffffff;
+        background-color: rgba(217, 27, 36, 0.15);
+      }
+
+      &.active {
+        border-bottom: 2px solid #d91b24;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 240px;
+    background-color: #1c1c1f;
+    border: 1px solid #27272a;
+    border-top: 2px solid #d91b24;
+    border-radius: 0 0 6px 6px;
+    padding: 0.4rem 0;
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+
+    li a {
+      display: block;
+      padding: 0.65rem 1rem;
+      color: #d4d4d8;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: background 0.2s, color 0.2s;
+
+      &:hover,
+      &.active {
+        background-color: #d91b24;
+        color: #ffffff;
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    .has-dropdown:hover .dropdown-menu {
+      display: flex;
+    }
+  }
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+
+  span {
+    width: 26px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+  }
+}
+
+@media (max-width: 991px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #18181b;
+    border-bottom: 2px solid #d91b24;
+    padding: 1rem;
+    z-index: 1000;
+
+    &.open {
+      display: block;
+    }
+
+    ul {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .dropdown-menu {
+      position: static;
+      box-shadow: none;
+      border: none;
+      background-color: #111113;
+      padding-left: 1rem;
+
+      &.show {
+        display: flex;
+      }
+    }
+  }
+}

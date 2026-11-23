@@ -1,0 +1,54 @@
+.site-header {
+  background-color: #111113;
+  color: #ffffff;
+  border-bottom: 3px solid #d91b24;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: #ffffff;
+
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+
+    .brand-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+
+      .highlight {
+        color: #d91b24;
+      }
+    }
+
+    .brand-subtitle {
+      font-size: 0.7rem;
+      color: #a1a1aa;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+}

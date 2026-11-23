@@ -1,1 +1,19 @@
 <app-hero />
+
+<section class="home-section news-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="section-tag">ACTUALIDAD</span>
+        <h2>Últimas <span class="highlight">Noticias</span></h2>
+      </div>
+      <a routerLink="/news" class="view-all-link">Ver todas las noticias →</a>
+    </div>
+
+    <div class="cards-grid">
+      @for (item of latestNews; track item.id) {
+        <app-news-card [news]="item" />
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+.home-section {
+  padding: 4.5rem 1.5rem;
+  background-color: #09090b;
+  color: #ffffff;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #27272a;
+  padding-bottom: 1.25rem;
+
+  .section-tag {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #d91b24;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.35rem;
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    font-weight: 800;
+    margin: 0;
+
+    .highlight {
+      color: #d91b24;
+    }
+  }
+
+  .view-all-link {
+    color: #e4e4e7;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #d91b24;
+    }
+  }
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 1.75rem;
+}

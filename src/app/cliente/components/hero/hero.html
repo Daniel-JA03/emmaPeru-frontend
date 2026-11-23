@@ -1,1 +1,39 @@
-<p>hero works!</p>
+<section class="hero" (mouseenter)="stopAutoSlide()" (mouseleave)="startAutoSlide()">
+  @for (slide of slides; track slide.image; let i = $index) {
+    <div
+      class="hero-slide"
+      [class.active]="i === currentIndex()"
+      [style.background-image]="'url(' + slide.image + ')'"
+    >
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-badge">{{ slide.badge }}</span>
+        <h1>
+          {{ slide.title }} <span class="highlight">{{ slide.highlight }}</span>
+        </h1>
+        <p>{{ slide.description }}</p>
+        <div class="hero-actions">
+          <a [routerLink]="slide.primaryRoute" class="btn btn-primary">{{ slide.primaryText }}</a>
+          <a [routerLink]="slide.secondaryRoute" class="btn btn-outline">{{ slide.secondaryText }}</a>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Flechas laterales -->
+  <button type="button" class="nav-arrow prev" (click)="prevSlide()" aria-label="Anterior">❮</button>
+  <button type="button" class="nav-arrow next" (click)="nextSlide()" aria-label="Siguiente">❯</button>
+
+  <!-- Indicadores inferiores -->
+  <div class="hero-dots">
+    @for (slide of slides; track slide.image; let i = $index) {
+      <button
+        type="button"
+        class="dot"
+        [class.active]="i === currentIndex()"
+        (click)="goToSlide(i)"
+        [attr.aria-label]="'Ir a diapositiva ' + (i + 1)"
+      ></button>
+    }
+  </div>
+</section>

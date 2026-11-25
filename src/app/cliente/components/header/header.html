@@ -1,16 +1,39 @@
 <header class="site-header">
   <div class="header-container">
-    <!-- LOGO PROVISIONAL EMMA PERÚ -->
-    <a routerLink="/" class="brand">
-      <svg class="brand-logo" viewBox="0 0 48 48" fill="none" xmlns="http://w3.org">
-        <rect width="48" height="48" rx="8" fill="#18181B" />
-        <path d="M10 24H15L19 14L25 34L29 20L33 24H38" stroke="#D91B24" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
-        <rect x="4" y="4" width="40" height="40" rx="6" stroke="#D91B24" stroke-width="1.5" stroke-opacity="0.6" />
+    <!-- LOGO OFICIAL EMMA PERÚ -->
+    <a routerLink="/" class="brand" aria-label="EMMA Perú - Inicio">
+      <svg class="emma-peru-logo" viewBox="0 0 330 100" fill="none" xmlns="http://w3.org">
+        <!-- 3 Estrellas Amarillas en arco -->
+        <polygon points="40,7 44,17 55,17 46,23 49,33 40,27 31,33 34,23 25,17 36,17" fill="#FACC15" stroke="#EAB308" stroke-width="0.6" />
+        <polygon points="23,31 27,41 38,41 29,47 32,57 23,51 14,57 17,47 8,41 19,41" fill="#FACC15" stroke="#EAB308" stroke-width="0.6" />
+        <polygon points="20,58 24,68 35,68 26,74 29,84 20,78 11,84 14,74 5,68 16,68" fill="#FACC15" stroke="#EAB308" stroke-width="0.6" />
+
+        <!-- Texto principal EMMA en azul corporativo -->
+        <text x="60" y="50" fill="#1E1B6B" font-family="'Arial Black', 'Segoe UI', Impact, sans-serif" font-weight="900" font-size="49" letter-spacing="1.5">
+          EMMA
+        </text>
+
+        <!-- Subtítulo oficial -->
+        <text x="61" y="66" fill="#1E1B6B" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-weight="700" font-size="12.5" letter-spacing="0.25">
+          european mobile media association
+        </text>
+
+        <!-- Texto PERU estilo 3D cursiva con contorno negro uniforme -->
+        <g transform="translate(216, 92) skewX(-11)">
+          <!-- Sombra / bloque 3D negro -->
+          <text x="-2.2" y="2.8" fill="#09090B" stroke="#09090B" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="25" letter-spacing="1">
+            PERU
+          </text>
+          <!-- Filete claro intermedio -->
+          <text x="0" y="0" fill="none" stroke="#E4E4E7" stroke-width="2.6" stroke-linejoin="round" paint-order="stroke" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="25" letter-spacing="1">
+            PERU
+          </text>
+          <!-- Letras principales con contorno negro -->
+          <text x="0" y="0" stroke="#09090B" stroke-width="1.3" stroke-linejoin="round" paint-order="stroke" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="25" letter-spacing="1">
+            <tspan fill="#D91B24">P</tspan><tspan fill="#FFFFFF">ER</tspan><tspan fill="#D91B24">U</tspan>
+          </text>
+        </g>
       </svg>
-      <div class="brand-text">
-        <span class="brand-title">EMMA <span class="highlight">PERÚ</span></span>
-        <span class="brand-subtitle">Car Media Association</span>
-      </div>
     </a>
 
     <!-- MENÚ -->

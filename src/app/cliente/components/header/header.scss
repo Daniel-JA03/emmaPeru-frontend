@@ -1,7 +1,8 @@
 .site-header {
-  background-color: #111113;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #18181b;
   border-bottom: 3px solid #d91b24;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -22,7 +23,7 @@
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
-  color: #ffffff;
+  color: #18181b;
 
   .brand-logo {
     width: 44px;
@@ -38,6 +39,7 @@
       font-size: 1.35rem;
       font-weight: 800;
       letter-spacing: 0.5px;
+      color: #18181b;
 
       .highlight {
         color: #d91b24;
@@ -46,7 +48,7 @@
 
     .brand-subtitle {
       font-size: 0.7rem;
-      color: #a1a1aa;
+      color: #52525b;
       text-transform: uppercase;
       letter-spacing: 1px;
     }

@@ -1,1 +1,38 @@
-<p>home works!</p>
+<app-hero />
+
+<!-- SECCIÓN 2: ÚLTIMAS NOTICIAS -->
+<section class="home-section news-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="section-tag">ACTUALIDAD</span>
+        <h2>Últimas <span class="highlight">Noticias</span></h2>
+      </div>
+      <a routerLink="/news" class="view-all-link">Ver todas las noticias →</a>
+    </div>
+
+    <div class="cards-grid">
+      @for (item of latestNews; track item.id) {
+        <app-news-card [news]="item" />
+      }
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN 3: COLABORADORES -->
+<section class="home-section collaborators-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="section-tag">RED INTERNACIONAL</span>
+        <h2><span class="highlight">Colaboradores</span></h2>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+      @for (collab of collaborators; track collab.id) {
+        <app-collaborator-card [collaborator]="collab" />
+      }
+    </div>
+  </div>
+</section>

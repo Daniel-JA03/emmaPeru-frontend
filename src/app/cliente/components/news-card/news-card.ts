@@ -1,9 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+export interface NewsItem {
+  id: number;
+  title: string;
+  date: string;
+  category: string;
+  excerpt: string;
+  image: string;
+  route: string;
+}
 
 @Component({
-  imports: [],
   selector: 'app-news-card',
-  styleUrl: './news-card.scss',
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './news-card.html',
+  styleUrl: './news-card.scss',
 })
-export class NewsCard {}
+export class NewsCard {
+  news = input.required<NewsItem>();
+}

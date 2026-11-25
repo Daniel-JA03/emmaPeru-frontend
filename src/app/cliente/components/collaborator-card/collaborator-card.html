@@ -1,0 +1,34 @@
+<a
+  [href]="collaborator().websiteUrl"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="collaborator-card"
+  [title]="'Visitar web oficial de ' + collaborator().name"
+>
+  <div class="card-top">
+    <span class="external-badge">Sitio Oficial ↗</span>
+  </div>
+
+  <!-- LOGO OFICIAL EMMA CENTRADO SOBRE CAJA BLANCA -->
+  <div class="emma-logo-box">
+    <svg viewBox="0 0 240 82" xmlns="http://w3.org" class="emma-svg">
+      <polygon points="24,10 27,18 35,18 28,23 31,31 24,26 17,31 20,23 13,18 21,18" fill="#FACC15" />
+      <polygon points="15,32 18,40 26,40 19,45 22,53 15,48 8,53 11,45 4,40 12,40" fill="#FACC15" />
+      <polygon points="24,54 27,62 35,62 28,67 31,75 24,70 17,75 20,67 13,62 21,62" fill="#FACC15" />
+
+      <text x="42" y="42" fill="#0F177A" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="34" letter-spacing="1">
+        EMMA
+      </text>
+      <text x="43" y="54" fill="#1E293B" font-family="Arial, sans-serif" font-style="italic" font-weight="700" font-size="9.5">
+        european mobile media association
+      </text>
+      <text x="216" y="70" text-anchor="end" fill="#0F177A" font-family="Arial Black, sans-serif" font-weight="900" font-size="13.5">
+        {{ collaborator().countryLabel }}
+      </text>
+    </svg>
+  </div>
+
+  <div class="card-footer">
+    <span class="visit-link">{{ collaborator().websiteLabel }} →</span>
+  </div>
+</a>

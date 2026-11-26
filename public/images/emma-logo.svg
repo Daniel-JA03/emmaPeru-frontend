@@ -1,0 +1,84 @@
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 330 100"
+  width="330"
+  height="100"
+  fill="none"
+>
+  <!-- 3 Estrellas Amarillas en arco -->
+  <polygon points="40,7 44,17 55,17 46,23 49,33 40,27 31,33 34,23 25,17 36,17"
+    fill="#FACC15" stroke="#EAB308" stroke-width="0.6"/>
+
+  <polygon points="23,31 27,41 38,41 29,47 32,57 23,51 14,57 17,47 8,41 19,41"
+    fill="#FACC15" stroke="#EAB308" stroke-width="0.6"/>
+
+  <polygon points="20,58 24,68 35,68 26,74 29,84 20,78 11,84 14,74 5,68 16,68"
+    fill="#FACC15" stroke="#EAB308" stroke-width="0.6"/>
+
+  <!-- Texto principal EMMA -->
+  <text x="60" y="50"
+    fill="#1E1B6B"
+    font-family="Arial Black, Segoe UI, Impact, sans-serif"
+    font-weight="900"
+    font-size="49"
+    letter-spacing="1.5">
+    EMMA
+  </text>
+
+  <!-- Subtítulo -->
+  <text x="61" y="66"
+    fill="#1E1B6B"
+    font-family="Segoe UI, Roboto, Arial, sans-serif"
+    font-weight="700"
+    font-size="12.5"
+    letter-spacing="0.25">
+    european mobile media association
+  </text>
+
+  <!-- PERU con efecto 3D -->
+  <g transform="translate(216, 92) skewX(-11)">
+
+    <!-- Sombra -->
+    <text x="-2.2" y="2.8"
+      fill="#09090B"
+      stroke="#09090B"
+      stroke-width="3.2"
+      stroke-linejoin="round"
+      paint-order="stroke"
+      font-family="Arial Black, Impact, sans-serif"
+      font-weight="900"
+      font-size="25"
+      letter-spacing="1">
+      PERU
+    </text>
+
+    <!-- Filete claro -->
+    <text x="0" y="0"
+      fill="none"
+      stroke="#E4E4E7"
+      stroke-width="2.6"
+      stroke-linejoin="round"
+      paint-order="stroke"
+      font-family="Arial Black, Impact, sans-serif"
+      font-weight="900"
+      font-size="25"
+      letter-spacing="1">
+      PERU
+    </text>
+
+    <!-- Letras principales -->
+    <text x="0" y="0"
+      stroke="#09090B"
+      stroke-width="1.3"
+      stroke-linejoin="round"
+      paint-order="stroke"
+      font-family="Arial Black, Impact, sans-serif"
+      font-weight="900"
+      font-size="25"
+      letter-spacing="1">
+      <tspan fill="#D91B24">P</tspan><tspan fill="#FFFFFF">ER</tspan><tspan fill="#D91B24">U</tspan>
+    </text>
+
+  </g>
+</svg>

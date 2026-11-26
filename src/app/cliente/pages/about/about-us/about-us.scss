@@ -1,0 +1,265 @@
+.about-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Header */
+.about-header {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+}
+
+/* Facts Block */
+.facts-block {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+
+  .facts-text {
+    flex: 1;
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #555;
+      margin-bottom: 16px;
+    }
+  }
+
+  // .facts-logo {
+  //   flex-shrink: 0;
+  //   width: 220px;
+
+  //   img {
+  //     width: 100%;
+  //     height: auto;
+  //   }
+  // }
+
+  .facts-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .emma-logo {
+    width: 100%;
+    max-width: 330px;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+  
+}
+
+/* Benefits List */
+.benefits-block {
+  margin-bottom: 40px;
+
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 16px;
+  }
+
+  .benefits-list {
+    padding-left: 24px;
+
+    li {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+  }
+}
+
+/* Benefit Details */
+.benefit-details {
+  margin-bottom: 40px;
+
+  .benefit-detail {
+    margin-bottom: 32px;
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #555;
+    }
+  }
+}
+
+/* Targets */
+.targets-block {
+  margin-bottom: 40px;
+
+  .targets-intro {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 16px;
+  }
+
+  .targets-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 14px;
+      line-height: 1.6;
+
+      strong {
+        color: #1a1a2e;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+/* Contact */
+.contact-block {
+  margin-bottom: 40px;
+
+  p {
+    font-size: 1rem;
+    color: #555;
+
+    a {
+      color: #1a3a8a;
+      text-decoration: none;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* Sponsors */
+.sponsors-block {
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 20px;
+  }
+
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+    align-items: center;
+
+    .sponsor-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      transition: box-shadow 0.2s ease;
+
+      &:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 50px;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+
+/* =========================================
+   ESTILOS DE IMPRESIÓN (PDF / Print)
+   ========================================= */
+@media print {
+  // 1. Ocultar absolutamente todo por defecto
+  body * {
+    visibility: hidden;
+  }
+
+  // 2. Hacer visible SOLO el área que queremos imprimir
+  .printable-area, 
+  .printable-area * {
+    visibility: visible;
+  }
+
+  // 3. Posicionar el área imprimible en la esquina superior izquierda
+  .printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white; // Asegurar fondo blanco para ahorrar tinta
+  }
+
+  // 4. Asegurar que los botones de compartir NO se impriman (doble seguridad)
+  .share-block, .no-print {
+    display: none !important;
+  }
+
+  // 5. Ajustes menores para que el PDF se vea profesional
+  h1, h2, h3 {
+    color: #1a1a2e !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333 !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .facts-block {
+    flex-direction: column;
+
+    .facts-logo {
+      width: 180px;
+      margin: 0 auto;
+    }
+  }
+
+  .sponsors-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  }
+}

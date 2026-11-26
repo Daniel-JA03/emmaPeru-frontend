@@ -1,1 +1,90 @@
-<p>about-us works!</p>
+<!-- ✅ SOLO UNA SECCIÓN PRINCIPAL CON LA CLASE printable-area -->
+<section class="about-section printable-area">
+  
+  <!-- Page Header -->
+  <header class="about-header">
+    <h1>{{ pageTitle }}</h1>
+  </header>
+
+  <!-- Main Content -->
+  <div class="about-content">
+    
+    <!-- Basic Facts -->
+    <div class="facts-block">
+      <div class="facts-text">
+        <h2>{{ basicFacts.title }}</h2>
+        @for (paragraph of basicFacts.paragraphs; track $index) {
+          <p>{{ paragraph }}</p>
+        }
+      </div>
+      <div class="facts-logo">
+        <img src="/images/emma-logo.svg" alt="EMMA Logo" />
+      </div>
+    </div>
+
+    <!-- Benefits List -->
+    <div class="benefits-block">
+      <h3>Beneficios de EMMA:</h3>
+      <ol class="benefits-list">
+        @for (benefit of benefits; track benefit.id) {
+          <li>{{ benefit.title }}</li>
+        }
+      </ol>
+    </div>
+
+    <!-- Benefit Details -->
+    <div class="benefit-details">
+      @for (benefit of benefits; track benefit.id) {
+        <article class="benefit-detail">
+          <h3>{{ benefit.id }}. {{ benefit.title }}</h3>
+          <p>{{ benefit.description }}</p>
+        </article>
+      }
+    </div>
+
+    <!-- Targets -->
+    <div class="targets-block">
+      <p class="targets-intro">En resumen, los objetivos principales de EMMA son:</p>
+      <ul class="targets-list">
+        @for (target of targets; track target.letter) {
+          <li>
+            <strong>{{ target.letter }}.</strong> {{ target.text }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-block">
+      <p>
+        Para más información, contáctanos en 
+        <a [href]="'mailto:' + contactEmail">{{ contactEmail }}</a>
+      </p>
+    </div>
+
+    <!-- Sponsors / Partners -->
+    <div class="sponsors-block">
+      <h3>Nuestros Patrocinadores y Socios</h3>
+      <div class="sponsors-grid">
+        @for (sponsor of sponsors; track sponsor) {
+          <div class="sponsor-item">
+            <img
+              [src]="'/images/sponsors/' + sponsor.toLowerCase().replace(/ /g, '-') + '.png'"
+              [alt]="sponsor"
+              [title]="sponsor"
+              loading="lazy"
+              (error)="onImageError($event)"
+            />
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- ✅ COMPONENTE REUTILIZABLE AL FINAL -->
+    <app-share-buttons 
+      shareTitle="Conoce más sobre EMMA - European Mobile Media Association"
+      [shareUrl]="currentUrl">
+    </app-share-buttons>
+
+  </div>
+</section>

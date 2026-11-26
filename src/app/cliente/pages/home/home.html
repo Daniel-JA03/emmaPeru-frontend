@@ -8,16 +8,18 @@
         <span class="section-tag">ACTUALIDAD</span>
         <h2>Últimas <span class="highlight">Noticias</span></h2>
       </div>
-      <a routerLink="/news" class="view-all-link">Ver todas las noticias →</a>
     </div>
-
     <div class="cards-grid">
       @for (item of latestNews; track item.id) {
         <app-news-card [news]="item" />
       }
     </div>
+    <div class="section-actions">
+      <a routerLink="/news" class="btn-outline-more">MÁS NOTICIAS</a>
+    </div>
   </div>
 </section>
+
 
 <!-- SECCIÓN 3: COLABORADORES -->
 <section class="home-section collaborators-section">

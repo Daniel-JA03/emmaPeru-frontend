@@ -1,5 +1,5 @@
 .home-section {
-  padding: 4.5rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   background-color: #ffffff;
   color: #18181b;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -17,42 +17,31 @@
 
 .section-header {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
-  border-bottom: 1px solid #e4e4e7;
-  padding-bottom: 1.25rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
 
   .section-tag {
     display: block;
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-size: 0.95rem;
+    font-weight: 800;
     color: #d91b24;
-    letter-spacing: 1.5px;
-    margin-bottom: 0.35rem;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
   }
 
   h2 {
-    font-size: clamp(1.6rem, 3vw, 2.25rem);
-    font-weight: 800;
+    font-size: clamp(2.5rem, 4.8vw, 3.4rem);
+    font-weight: 900;
     color: #18181b;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
     margin: 0;
 
     .highlight {
-      color: #d91b24;
-    }
-  }
-
-  .view-all-link {
-    color: #3f3f46;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.92rem;
-    transition: color 0.2s ease;
-
-    &:hover {
       color: #d91b24;
     }
   }
@@ -62,4 +51,36 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   gap: 1.75rem;
+}
+
+
+
+
+
+
+
+.section-actions {
+  margin-top: 2.25rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-outline-more {
+  display: inline-block;
+  padding: 0.85rem 2.1rem;
+  border: 1.5px solid #27272a;
+  background-color: transparent;
+  color: #18181b;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background-color: #d91b24;
+    border-color: #d91b24;
+    color: #ffffff;
+  }
 }

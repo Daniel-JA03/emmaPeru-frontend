@@ -1,12 +1,21 @@
 <article class="news-card">
-  <div class="card-image">
+  <a [routerLink]="news().route" class="card-image" [attr.aria-label]="news().title">
     <img [src]="news().image" [alt]="news().title" loading="lazy" />
-    <span class="category-badge">{{ news().category }}</span>
-  </div>
+  </a>
+
   <div class="card-body">
-    <span class="news-date">{{ news().date }}</span>
-    <h3>{{ news().title }}</h3>
+    <div class="meta-line">
+      @if (news().region) {
+        <a [routerLink]="news().categoryRoute || news().route" class="meta-link">{{ news().region }}</a>
+        <span class="separator">/</span>
+      }
+      <a [routerLink]="news().categoryRoute || news().route" class="meta-link">{{ news().category }}</a>
+    </div>
+
+    <h3>
+      <a [routerLink]="news().route" class="title-link">{{ news().title }}</a>
+    </h3>
+
     <p>{{ news().excerpt }}</p>
-    <a [routerLink]="news().route" class="read-more">Leer más <span>→</span></a>
   </div>
 </article>

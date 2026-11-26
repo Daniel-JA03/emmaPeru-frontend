@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ShareButtons } from '../../../components/share-buttons/share-buttons';
 
 interface Benefit {
   id: number;
@@ -14,11 +15,14 @@ interface Target {
 @Component({
   selector: 'app-about-us',
   standalone: true,
-  imports: [],
+  imports: [ShareButtons],
   styleUrl: './about-us.scss',
   templateUrl: './about-us.html',
 })
 export class AboutUs {
+  // Propiedad para pasar la URL actual al componente hijo
+  currentUrl = window.location.href; 
+
   pageTitle = "ACERCA DE EMMA";
 
   basicFacts = {

@@ -203,6 +203,51 @@
   }
 }
 
+
+/* =========================================
+   ESTILOS DE IMPRESIÓN (PDF / Print)
+   ========================================= */
+@media print {
+  // 1. Ocultar absolutamente todo por defecto
+  body * {
+    visibility: hidden;
+  }
+
+  // 2. Hacer visible SOLO el área que queremos imprimir
+  .printable-area, 
+  .printable-area * {
+    visibility: visible;
+  }
+
+  // 3. Posicionar el área imprimible en la esquina superior izquierda
+  .printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white; // Asegurar fondo blanco para ahorrar tinta
+  }
+
+  // 4. Asegurar que los botones de compartir NO se impriman (doble seguridad)
+  .share-block, .no-print {
+    display: none !important;
+  }
+
+  // 5. Ajustes menores para que el PDF se vea profesional
+  h1, h2, h3 {
+    color: #1a1a2e !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333 !important;
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .facts-block {

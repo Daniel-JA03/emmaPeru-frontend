@@ -1,4 +1,6 @@
-<section class="about-section">
+<!-- ✅ SOLO UNA SECCIÓN PRINCIPAL CON LA CLASE printable-area -->
+<section class="about-section printable-area">
+  
   <!-- Page Header -->
   <header class="about-header">
     <h1>{{ pageTitle }}</h1>
@@ -60,7 +62,7 @@
       </p>
     </div>
 
-        <!-- Sponsors / Partners -->
+    <!-- Sponsors / Partners -->
     <div class="sponsors-block">
       <h3>Nuestros Patrocinadores y Socios</h3>
       <div class="sponsors-grid">
@@ -77,6 +79,12 @@
         }
       </div>
     </div>
+
+    <!-- ✅ COMPONENTE REUTILIZABLE AL FINAL -->
+    <app-share-buttons 
+      shareTitle="Conoce más sobre EMMA - European Mobile Media Association"
+      [shareUrl]="currentUrl">
+    </app-share-buttons>
 
   </div>
 </section>

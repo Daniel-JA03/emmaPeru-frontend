@@ -1,1 +1,276 @@
-<p>footer works!</p>
+<footer class="site-footer">
+  <!-- =====================================================
+       ZONA SUPERIOR: INFORMACIÓN Y SERVICIOS
+       Cuatro columnas principales del footer.
+       ===================================================== -->
+  <div class="footer-top">
+    <div class="footer-container">
+      <!-- Columna 1: Links -->
+      <div class="footer-col">
+        <h4 class="footer-title">ENLACES</h4>
+        <ul class="footer-list">
+          @for (link of links; track link.route) {
+            <li>
+              <!-- Enlace externo -->
+              @if (link.external && link.url) {
+                <a [href]="link.url" target="_blank" rel="noopener noreferrer">
+                  {{ link.label }}
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+              }
+              <!-- Enlace interno -->
+              @else if (link.route) {
+                <a [routerLink]="link.route"
+                  >{{ link.label }}
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+              }
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- COLUMNA 2: CONTACTO -->
+      <div class="footer-col">
+        <h4 class="footer-title">CONTÁCTANOS</h4>
+
+        <address class="footer-address">
+          <div class="contact-item">
+            <i class="bi bi-geo-alt"></i>
+            <span>{{ contact.street }}</span>
+          </div>
+
+          <div class="contact-item">
+            <i class="bi bi-pin-map"></i>
+            <span>{{ contact.city }}</span>
+          </div>
+
+          <div class="contact-item">
+            <i class="bi bi-globe"></i>
+            <span>{{ contact.country }}</span>
+          </div>
+
+          <div class="contact-item">
+            <i class="bi bi-telephone"></i>
+            <a [href]="'tel:' + contact.phone">
+              {{ contact.phone }}
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <i class="bi bi-telephone"></i>
+            <a [href]="'tel:' + contact.workPhone">
+              {{ contact.workPhone }}
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <i class="bi bi-envelope"></i>
+            <a [href]="'mailto:' + contact.email">
+              {{ contact.email }}
+            </a>
+          </div>
+        </address>
+      </div>
+
+      <!-- =================================================
+           COLUMNA 3: UPCOMING EVENTS
+
+           FUNCIONALIDAD FUTURA:
+           Actualmente utiliza eventos de prueba definidos
+           en footer.ts.
+
+           Cuando se implemente Spring Boot:
+           1. Crear EventService en Angular.
+           2. Consultar GET /api/events/upcoming.
+           3. Recibir los próximos eventos publicados.
+           4. Reemplazar los datos de prueba por la respuesta
+              del backend.
+
+           El backend será responsable de consultar MySQL,
+           filtrar eventos publicados y ordenarlos por fecha.
+           ================================================= -->
+      <div class="footer-col events-column">
+        <div class="footer-heading">
+          <h4 class="footer-title">PRÓXIMOS EVENTOS</h4>
+          <span class="events-indicator"></span>
+        </div>
+
+        @if (upcomingEvents().length > 0) {
+          <ul class="events-list">
+            @for (event of upcomingEvents(); track event.id) {
+              <li class="event-item">
+                <!-- FECHA DEL EVENTO -->
+                <div class="event-date">
+                  <span class="event-month">
+                    {{ event.startDate | date: 'MMM' }}
+                  </span>
+
+                  <span class="event-day">
+                    {{ event.startDate | date: 'dd' }}
+                  </span>
+                </div>
+
+                <!-- INFORMACIÓN DEL EVENTO -->
+                <div class="event-info">
+                  <h5 class="event-title">
+                    {{ event.title }}
+                  </h5>
+
+                  <div class="event-detail">
+                    <i class="bi bi-calendar3"></i>
+                    <span>
+                      {{ event.startDate | date: 'dd MMM yyyy' }}
+                    </span>
+                  </div>
+
+                  @if (event.location) {
+                    <div class="event-detail">
+                      <i class="bi bi-geo-alt"></i>
+                      <span>{{ event.location }}</span>
+                    </div>
+                  }
+                </div>
+              </li>
+            }
+          </ul>
+        } @else {
+          <!-- Se muestra cuando no existen eventos próximos -->
+          <div class="events-empty">
+            <i class="bi bi-calendar-x"></i>
+            <p>No hay próximos eventos disponibles.</p>
+          </div>
+        }
+
+        <a routerLink="/calendar" class="view-calendar">
+          VER TODOS LOS EVENTOS
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- =================================================
+           COLUMNA 4: NEWSLETTER
+
+           FUNCIONALIDAD FUTURA:
+           El formulario actualmente realiza validaciones
+           visuales en Angular.
+
+           Posteriormente se conectará con Spring Boot:
+           POST /api/newsletter/subscribe
+
+           El backend validará el correo y lo almacenará
+           en MySQL para gestionar las suscripciones.
+           ================================================= -->
+      <div class="footer-col newsletter-column">
+        <h4 class="footer-title">SUSCRÍBETE A EMMANET POR EMAIL</h4>
+
+        <p class="newsletter-desc">
+          Suscríbete para recibir las últimas noticias, concursos y actualizaciones de EMMA Peru.
+        </p>
+
+        <form class="newsletter-form" (ngSubmit)="subscribe()" novalidate>
+          <div class="newsletter-input">
+            <i class="bi bi-envelope"></i>
+
+            <input
+              type="email"
+              placeholder="ingrese su correo electrónico"
+              [ngModel]="subscriberEmail()"
+              (ngModelChange)="subscriberEmail.set($event)"
+              name="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <button type="submit" class="subscribe-btn" [disabled]="isSubmitting()">
+            SUSCRIBIR
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </form>
+
+        @if (errorMessage()) {
+          <p class="newsletter-message error">
+            <i class="bi bi-exclamation-circle"></i>
+            {{ errorMessage() }}
+          </p>
+        }
+
+        @if (successMessage()) {
+          <p class="newsletter-message success">
+            <i class="bi bi-check-circle"></i>
+            {{ successMessage() }}
+          </p>
+        }
+
+        <p class="newsletter-privacy">
+          <i class="bi bi-shield-check"></i>
+          Tu correo electrónico será tratado de forma segura.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== WHATSAPP FLOATING BUTTON ====== -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/51937006907?text=Hola%2C%20quisiera%20obtener%20informaci%C3%B3n%20sobre%20EMMA%20Perú."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar con EMMA Perú por WhatsApp"
+    title="Contáctanos por WhatsApp"
+  >
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <!-- =====================================================
+       ZONA MEDIA: REDES SOCIALES
+       ===================================================== -->
+  <div class="footer-social">
+    <div class="footer-container">
+      <div class="social-heading">
+        <h4 class="social-title">SIGUE A EMMA PERÚ</h4>
+        <p>Mantente conectado con nuestra comunidad.</p>
+      </div>
+
+      <ul class="social-list">
+        @for (social of socials; track social.name) {
+          <li>
+            <a
+              [href]="social.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              [title]="social.name"
+              [attr.aria-label]="social.name"
+            >
+              <i [class]="social.icon"></i>
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       ZONA INFERIOR: COPYRIGHT
+       ===================================================== -->
+  <div class="footer-bottom">
+    <div class="footer-container">
+      <small> © {{ currentYear }} {{ companyName }}. Reservados todos los derechos. </small>
+    </div>
+  </div>
+
+  <!-- BOTÓN VOLVER ARRIBA -->
+  <button
+    class="scroll-to-top"
+    [class.visible]="showScrollTop()"
+    type="button"
+    (click)="scrollToTop()"
+    title="Volver a la parte superior"
+    aria-label="Volver a la parte superior"
+    [attr.aria-hidden]="!showScrollTop()"
+    [attr.tabindex]="showScrollTop() ? 0 : -1"
+  >
+    <i class="bi bi-arrow-up"></i>
+  </button>
+</footer>

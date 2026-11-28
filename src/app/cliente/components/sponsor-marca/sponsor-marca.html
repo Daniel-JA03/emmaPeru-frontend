@@ -1,0 +1,59 @@
+<section class="partners-section">
+  <div class="partners-container">
+    <h2 class="partners-title">EMMA PERU PARTNERS 2026</h2>
+
+    <div class="partners-grid">
+      @for (partner of partners(); track partner.id) {
+        <a
+          [href]="partner.websiteUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="partner-link"
+          [attr.aria-label]="'Visitar sitio web de ' + partner.name"
+        >
+          @if (partner.logoUrl) {
+            <img [src]="partner.logoUrl" [alt]="partner.name" class="partner-img" loading="lazy" />
+          } @else {
+            @switch (partner.id) {
+              @case ('groundzero') {
+                <svg class="partner-svg" viewBox="0 0 260 65" role="img" aria-label="Ground Zero">
+                  <text x="130" y="34" text-anchor="middle" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-style="italic" font-size="25" fill="#18181b" letter-spacing="-0.5">
+                    GROUND ZERO
+                  </text>
+                  <text x="130" y="51" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="10.5" fill="#d91b24" letter-spacing="1.6">
+                    GERMAN ENGINEERING
+                  </text>
+                </svg>
+              }
+
+              @case ('pioneer') {
+                <svg class="partner-svg" viewBox="0 0 260 65" role="img" aria-label="Pioneer">
+                  <text x="130" y="42" text-anchor="middle" font-family="'Arial Black', sans-serif" font-weight="900" font-style="italic" font-size="34" fill="#991b1b" letter-spacing="-0.5">
+                    Pioneer
+                  </text>
+                </svg>
+              }
+
+              @case ('hertz') {
+                <svg class="partner-svg" viewBox="0 0 260 65" role="img" aria-label="Hertz">
+                  <line x1="28" y1="33" x2="72" y2="33" stroke="#d97706" stroke-width="3.5" />
+                  <text x="142" y="42" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="31" fill="#18181b" letter-spacing="3.5">
+                    HERTZ
+                  </text>
+                </svg>
+              }
+
+              @case ('jlaudio') {
+                <svg class="partner-svg" viewBox="0 0 260 65" role="img" aria-label="JL Audio">
+                  <text x="130" y="42" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="29" fill="#18181b" letter-spacing="2">
+                    JL AUDIO<tspan font-size="10" dy="-12">®</tspan>
+                  </text>
+                </svg>
+              }
+            }
+          }
+        </a>
+      }
+    </div>
+  </div>
+</section>

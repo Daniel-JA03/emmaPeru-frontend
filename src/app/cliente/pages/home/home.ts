@@ -3,11 +3,13 @@ import { RouterLink } from '@angular/router';
 import { Hero } from '../../components/hero/hero';
 import { NewsCard, NewsItem } from '../../components/news-card/news-card';
 import { CollaboratorCard, CollaboratorItem } from '../../components/collaborator-card/collaborator-card';
+import { SponsorMarca } from '../../components/sponsor-marca/sponsor-marca';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, Hero, NewsCard, CollaboratorCard],
+  imports: [RouterLink, Hero, NewsCard, CollaboratorCard, SponsorMarca],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
